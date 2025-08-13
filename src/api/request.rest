@@ -1,0 +1,26 @@
+GET http://localhost:3000/api/todo/
+
+### 
+
+POST http://localhost:3000/api/todo
+Content-Type: application/json
+
+{
+  "title": "First Todo",
+  "description": "This is my first todo"
+}
+
+###
+
+PUT http://localhost:3000/api/todo/1447a9cc-574c-40a0-a09a-ede7abaf8032
+Content-Type: application/json
+
+{
+  "title": "First todo updated",
+  "description": "Updated",
+  "completed": true
+}
+
+###
+
+DELETE http://localhost:3000/api/todo/1447a9cc-574c-40a0-a09a-ede7abaf8032

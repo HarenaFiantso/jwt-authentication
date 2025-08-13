@@ -3,7 +3,7 @@ import fs from "fs"
 
 const readData = (filename) => {
   const filepath = path.join(process.cwd(), "src", "api", "data", filename)
-  return JSON.parse(filepath)
+  return JSON.parse(fs.readFileSync(filepath))
 };
 
 const writeData = (filename, data) => {

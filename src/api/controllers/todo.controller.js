@@ -4,7 +4,7 @@ import crypto from "crypto";
 const getAllTodos = async (req, res) => {
   try {
     const data = await readData("todos.json");
-    res.json(data.todos);
+    res.json(data.todo);
   } catch (err) {
     console.error("Error reading file:", err.message);
     res.status(500).json({ message: "Server error" });
@@ -22,7 +22,7 @@ const createTodo = async (req, res) => {
     const data = await readData("todos.json");
     const newTodo = { id: crypto.randomUUID(), title, description, completed: false };
 
-    data.todos.push(newTodo);
+    data.todo.push(newTodo);
 
     writeData("todos.json", data);
 
@@ -43,17 +43,17 @@ const updateTodo = async (req, res) => {
     }
 
     const data = await readData("todos.json");
-    const todoIndex = data.todos.findIndex((t) => t.id === id);
+    const todoIndex = data.todo.findIndex((t) => t.id === id);
 
     if (todoIndex === -1) {
       return res.status(404).json({ error: "Todo not found" });
     }
 
-    data.todos[todoIndex] = { ...data.todos[todoIndex], title, description, completed };
+    data.todo[todoIndex] = { ...data.todo[todoIndex], title, description, completed };
 
     writeData("todos.json", data);
 
-    res.json(data.todos[todoIndex]);
+    res.json(data.todo[todoIndex]);
   } catch (err) {
     console.error("Error updating todo:", err.message);
     res.status(500).json({ message: "Server error" });
@@ -65,13 +65,13 @@ const deleteTodo = async (req, res) => {
     const id = req.params.id;
     const data = await readData("todos.json");
 
-    const todoIndex = data.todos.findIndex((t) => t.id === id);
+    const todoIndex = data.todo.findIndex((t) => t.id === id);
 
     if (todoIndex === -1) {
       return res.status(404).json({ error: "Todo not found" });
     }
 
-    const deletedTodo = data.todos.splice(todoIndex, 1)[0];
+    const deletedTodo = data.todo.splice(todoIndex, 1)[0];
 
     writeData("todos.json", data);
 
