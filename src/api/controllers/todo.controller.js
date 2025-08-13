@@ -1,8 +1,8 @@
-import fs from "fs";
+import { readData } from "../utils/file-handler.js";
 
 const getAllTodo = (_req, res) => {
   try {
-    const data = fs.readFileSync("src/api/data/todos.json")
+    const data = readData("todos.json")
     res.json(JSON.parse(data));
   } catch (error) {
     console.error("Error reading file", error);
