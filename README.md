@@ -2,15 +2,15 @@
 
 Une application qui permet de pratiquer l’intégration de **JWT** en utilisant **Node.js** avec **Express.js** pour le backend et **React** pour le frontend.
 
-Pour ceux qui ne connaissent pas, **JWT** (*JSON Web Token*) est une méthode d’authentification qui permet de vérifier l’identité des utilisateurs de manière sécurisée, en échangeant un jeton (token) signé entre le client et le serveur.
+Pour ceux qui ne connaissent pas, **JWT** (_JSON Web Token_) est une méthode d’authentification qui permet de vérifier l’identité des utilisateurs de manière sécurisée, en échangeant un jeton (token) signé entre le client et le serveur.
 [Voir la documentation officielle de JWT](https://jwt.io/introduction).
 
 ## Fonctionnalités
 
-* **Inscription** et **connexion** des utilisateurs avec génération de JWT.
-* **Protection des routes** côté backend avec middleware de vérification du token.
-* **Stockage sécurisé du token** côté client.
-* **Interface React** simple pour tester l’authentification.
+- **Inscription** et **connexion** des utilisateurs avec génération de JWT.
+- **Protection des routes** côté backend avec middleware de vérification du token.
+- **Stockage sécurisé du token** côté client.
+- **Interface React** simple pour tester l’authentification.
 
 ---
 
@@ -34,9 +34,9 @@ npm run dev:all
 # Ce script (défini dans package.json côté frontend) utilise 'concurrently'
 # pour démarrer à la fois le serveur React et le serveur Node.js.
 ```
+
 > [!IMPORTANT]
 > Pensez à créer un fichier `.env.local` à la racine du projet **frontend** et à y définir votre propre valeur pour `VITE_API_BASE_URL` (indiquée dans `.env.template`). Cette variable correspond à l’URL de votre API.
-
 
 ---
 
@@ -44,7 +44,7 @@ npm run dev:all
 
 | Commande             | Description                                                |
 | -------------------- | ---------------------------------------------------------- |
-| `npm run dev`          | Lance uniquement le frontend (React)                       |
+| `npm run dev`        | Lance uniquement le frontend (React)                       |
 | `npm run dev:server` | Lance uniquement le backend (Node.js)                      |
 | `npm run dev:all`    | Lance les deux serveurs en parallèle avec **concurrently** |
 
@@ -60,7 +60,7 @@ jwt-authentication/
 │   │   ├── controllers/  # Logique métier
 │   │   ├── routes/       # Routes API
 │   │   └── server.js     # Point d’entrée backend
-├── ├── assets/ 
+├── ├── assets/
 ├── ├── components/
 ├── ├── lib/
 ├── ├── service/
@@ -72,13 +72,13 @@ jwt-authentication/
 
 ## Technologies utilisées
 
-* **Backend** : Node.js, Express.js, JWT, bcrypt (hashage des mots de passe)
-* **Frontend** : React, Axios
+- **Backend** : Node.js, Express.js, JWT, bcrypt (hashage des mots de passe)
+- **Frontend** : React, Axios
 
 ---
 
 ## Points importants
 
-* Le token JWT est généré à la connexion et envoyé au client.
-* Les requêtes vers les routes protégées doivent inclure le token dans l’en-tête `Authorization`.
-* Le token a une durée de vie limitée et doit être régénéré à la reconnexion.
+- Le token JWT est généré à la connexion et envoyé au client.
+- Les requêtes vers les routes protégées doivent inclure le token dans l’en-tête `Authorization`.
+- Le token a une durée de vie limitée et doit être régénéré à la reconnexion.

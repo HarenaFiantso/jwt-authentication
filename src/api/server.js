@@ -8,7 +8,7 @@ const PORT = 3000;
 
 app.use(cors());
 app.use("/api/health-check", healthCheckRoute);
-app.use("/api/todo", todoRoute)
+app.use("/api/todo", todoRoute);
 
 app.listen(PORT, () => {
   console.log(`Server is listen on port ${PORT}`);

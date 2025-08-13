@@ -1,4 +1,3 @@
-export { getAllTodos, updateTodo, createTodo, deleteTodo }
 import { readData, writeData } from "../utils/file-handler.js";
 import crypto from "crypto";
 
