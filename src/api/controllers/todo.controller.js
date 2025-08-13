@@ -1,13 +1,14 @@
 import { readData } from "../utils/file-handler.js";
 
-const getAllTodo = (_req, res) => {
+const getAllTodo = async (_req, res) => {
   try {
-    const data = readData("todos.json")
-    res.json(JSON.parse(data));
-  } catch (error) {
-    console.error("Error reading file", error);
+    const data = await readData("todos.json");
+    res.json(data.todos);
+  } catch (err) {
+    console.error("Error reading file:", err.message);
+    res.status(500).json({ message: "Server error" });
   }
-}
+};
 
 const createTodo = () => { }
 
